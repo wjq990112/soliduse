@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+
+# log
+*.log
+
+# dist
+packages/**/dist
+
+# test coverage
+packages/**/coverage
