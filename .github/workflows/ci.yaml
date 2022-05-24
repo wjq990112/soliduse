@@ -15,4 +15,5 @@ jobs:
           version: 7
       - run: pnpm install
       - run: pnpm lint
+      - run: pnpm build
       - run: pnpm test
