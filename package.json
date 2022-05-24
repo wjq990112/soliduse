@@ -8,11 +8,11 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "clean": "rm -rf packages/**/dist",
-    "update:deps": "pnpm update && pnpm update -r",
-    "build": "pnpm run clean && pnpm run build -r --parallel",
-    "watch": "pnpm run clean && pnpm run watch -r --parallel",
-    "test": "pnpm run test -r",
-    "test:watch": "pnpm run test:watch -r"
+    "build": "pnpm run clean && pnpm run -r --parallel build",
+    "watch": "pnpm run clean && pnpm run -r --parallel watch",
+    "test": "pnpm run -r test",
+    "test:watch": "pnpm run -r test:watch",
+    "lint": "echo 'script lint is not implemented yet'"
   },
   "keywords": [
     "solidjs",
