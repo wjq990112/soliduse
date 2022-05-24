@@ -1,0 +1,32 @@
+{
+  "name": "@soliduse/core",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Jack Wang<https://github.com/wjq990112>",
+  "description": "Collection of essential SolidJS Primitive for SolidJS",
+  "keywords": [
+    "solidjs",
+    "use",
+    "hooks"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest watch"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@soliduse/shared": "workspace:*",
+    "solid-js": "^1.4.2"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.3.0"
+  }
+}
