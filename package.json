@@ -8,7 +8,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "clean": "rm -rf packages/**/dist",
-    "build": "pnpm run clean && pnpm run -r --parallel build",
+    "build": "pnpm run clean && pnpm run -r --stream build",
     "watch": "pnpm run clean && pnpm run -r --parallel watch",
     "test": "pnpm run -r test",
     "test:watch": "pnpm run -r test:watch",
