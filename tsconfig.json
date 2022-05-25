@@ -11,10 +11,10 @@
     "declaration": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
+    "jsxImportSource": "solid-js",
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "noUnusedLocals": true,
-    "types": ["vitest/globals"]
+    "noUnusedLocals": true
   },
   "exclude": ["**/node_modules", "**/__tests__", "**/dist"]
 }
