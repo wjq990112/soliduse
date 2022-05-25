@@ -11,5 +11,8 @@ export default defineConfig({
     transformMode: {
       web: [/\.(j|t)sx?$/],
     },
+    deps: {
+      inline: [/solid-js/],
+    },
   },
 });

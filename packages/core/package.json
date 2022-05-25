@@ -1,5 +1,5 @@
 {
-  "name": "@soliduse/shared",
+  "name": "@soliduse/core",
   "version": "1.0.0",
   "license": "MIT",
   "author": "Jack Wang<https://github.com/wjq990112>",
@@ -23,7 +23,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@testing-library/dom": "^8.13.0",
+    "@soliduse/shared": "workspace:*",
     "solid-js": "^1.4.2"
   },
   "peerDependencies": {
