@@ -1,37 +1,33 @@
 export * from '@testing-library/dom';
 
-import type { JSX } from 'solid-js';
 import type { PrettyDOMOptions } from '@testing-library/dom';
-import type { Container } from './types';
+import type {
+  Component,
+  Container,
+  Fn,
+  MountOptions,
+  MountResult,
+} from './types';
 
 import { hydrate, render } from 'solid-js/web';
-import { getQueriesForElement, prettyDOM, queries } from '@testing-library/dom';
-
-type Root = ReturnType<typeof createRoot>;
+import { getQueriesForElement, prettyDOM } from '@testing-library/dom';
 
 type RootEntry = {
   container: Container;
-  root: Root;
-};
-
-type Options = {
-  baseElement?: HTMLElement;
-  container?: HTMLElement;
-  hydrate?: boolean;
-  queries?: typeof queries;
+  root: ReturnType<typeof createRoot>;
 };
 
 const mountedContainers = new Set<Container>();
 const mountedRootEntries: RootEntry[] = [];
 
 function createRoot(container: HTMLElement) {
-  let dispose: () => void;
+  let dispose: Fn;
 
   return {
-    hydrate(element: () => JSX.Element) {
+    hydrate(element: Component) {
       dispose = hydrate(element, container);
     },
-    render(element: () => JSX.Element) {
+    render(element: Component) {
       dispose = render(element, container);
     },
     unmount() {
@@ -40,7 +36,7 @@ function createRoot(container: HTMLElement) {
   };
 }
 
-export function mount(ui: () => JSX.Element, options: Options = {}) {
+export function mount(ui: Component, options: MountOptions = {}): MountResult {
   let { baseElement, container, hydrate: isHydrate, queries } = options;
 
   baseElement = container;
