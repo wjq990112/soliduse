@@ -1,16 +1,16 @@
-import type { Fn } from '@soliduse/shared';
+import type { AnyFn, Fn } from '@soliduse/shared';
 
 import { defalutWindow, isString, noop } from '@soliduse/shared';
 
 type GeneralEventTarget<Events> = {
   addEventListener: (
     eventName: Events,
-    listener?: Fn,
+    listener?: AnyFn,
     options?: boolean | AddEventListenerOptions
   ) => unknown;
   removeEventListener: (
     eventName: Events,
-    listener?: Fn,
+    listener?: AnyFn,
     options?: boolean | EventListenerOptions
   ) => unknown;
 };

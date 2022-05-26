@@ -16,6 +16,7 @@ export type Container =
   | DocumentFragment
   | Node;
 export type Fn = () => void;
+export type AnyFn = (...args: any[]) => any;
 export type ReturnFn = () => Fn;
 export type MaybeAccessor<T> = T | Accessor<T>;
 export type MountOptions<
