@@ -10,7 +10,7 @@ describe('@soliduse/core/useClickOutside', () => {
     cleanup();
   });
 
-  test('should be triggered when clicking outside of target correctly', () => {
+  test('should be triggered correctly when clicking outside of target', () => {
     const listener = vi.fn();
 
     let ref: HTMLElement;
@@ -37,7 +37,7 @@ describe('@soliduse/core/useClickOutside', () => {
     expect(listener).toHaveBeenCalledTimes(1);
   });
 
-  test('should not be triggered when clicking outside of target which is ignored correctly', () => {
+  test('should not be triggered correctly when clicking outside of target which is ignored', () => {
     const listener = vi.fn();
 
     let ref: HTMLElement;
@@ -65,7 +65,7 @@ describe('@soliduse/core/useClickOutside', () => {
     expect(listener).toHaveBeenCalledTimes(0);
   });
 
-  test('should be triggered when clicking outside of target after unregistering correctly', () => {
+  test('should not be triggered correctly when clicking outside of target after unregistering', () => {
     const listener = vi.fn();
 
     let unregister: Fn;
@@ -98,6 +98,12 @@ describe('@soliduse/core/useClickOutside', () => {
     fireEvent.click(queryByText(/button/i));
     expect(listener).toHaveBeenCalledTimes(1);
     fireEvent.click(queryByText(/hello world/i));
+    expect(listener).toHaveBeenCalledTimes(1);
+    fireEvent.pointerDown(queryByText(/button/i));
+    fireEvent.pointerDown(queryByText(/hello world/i));
+    expect(listener).toHaveBeenCalledTimes(1);
+    fireEvent.pointerUp(queryByText(/button/i));
+    fireEvent.pointerUp(queryByText(/hello world/i));
     expect(listener).toHaveBeenCalledTimes(1);
   });
 });
