@@ -53,7 +53,7 @@ export default function useClickOutside(
   };
 
   const handlePointerDown: AnyFn = (event: PointerEvent) => {
-    setShouldListen(target && event.composedPath().includes(target));
+    setShouldListen(target && !event.composedPath().includes(target));
   };
 
   const handlePointerUp: AnyFn = (event: PointerEvent) => {
