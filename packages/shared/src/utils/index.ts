@@ -1,3 +1,4 @@
+export * from './compute';
 export * from './env';
 export * from './is';
 export * from './test';
