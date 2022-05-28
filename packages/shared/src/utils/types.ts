@@ -37,9 +37,9 @@ export type MountResult<
   baseElement?: B;
   container?: C;
   debug: (
-    el: HTMLElement | HTMLElement[],
-    maxLength: number,
-    options: PrettyDOMOptions
+    el?: HTMLElement | HTMLElement[],
+    maxLength?: number,
+    options?: PrettyDOMOptions
   ) => void;
   unmount: Fn;
 } & {

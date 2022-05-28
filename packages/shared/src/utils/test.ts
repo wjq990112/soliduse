@@ -69,8 +69,8 @@ export function mount(ui: Component, options: MountOptions = {}): MountResult {
 
   const debug = (
     el: HTMLElement | HTMLElement[] = baseElement as HTMLElement,
-    maxLength: number,
-    options: PrettyDOMOptions
+    maxLength?: number,
+    options?: PrettyDOMOptions
   ) => {
     if (Array.isArray(el)) {
       el.forEach((element) => {
