@@ -1,6 +1,13 @@
 /// <reference types="vitest/globals" />
+
+import stripAnsi from 'strip-ansi';
 import { createEffect, createSignal } from 'solid-js';
 import { cleanup, fireEvent, mount } from '../test';
+
+const log = vi.fn(stripAnsi);
+vi.spyOn(console, 'log').mockImplementation((message: string) => {
+  log(stripAnsi(message));
+});
 
 describe('@soliduse/shared/test', () => {
   afterEach(() => {
@@ -27,7 +34,27 @@ describe('@soliduse/shared/test', () => {
       );
     }
 
-    const { queryByTestId } = mount(App);
+    const { debug, queryByTestId, unmount } = mount(App);
+    debug();
+    expect(log).toHaveBeenCalledWith(`<body>
+  <div>
+    <div
+      data-testid="app"
+    >
+      0
+    </div>
+  </div>
+</body>`);
+    debug([document.body]);
+    expect(log).toHaveBeenCalledWith(`<body>
+  <div>
+    <div
+      data-testid="app"
+    >
+      0
+    </div>
+  </div>
+</body>`);
     expect(firstEffect).toHaveBeenCalledTimes(1);
     expect(secondEffect).toHaveBeenCalledTimes(1);
     const el = queryByTestId('app');
@@ -35,5 +62,7 @@ describe('@soliduse/shared/test', () => {
     fireEvent.click(el);
     expect(secondEffect).toHaveBeenCalledTimes(2);
     expect(el.textContent).toEqual('1');
+    unmount();
+    expect(queryByTestId('app')).not.toBeInTheDocument();
   });
 });
