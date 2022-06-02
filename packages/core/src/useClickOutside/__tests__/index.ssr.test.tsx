@@ -4,9 +4,13 @@ import { onMount } from 'solid-js';
 import { cleanup, fireEvent, mount } from '@soliduse/shared';
 import useClickOutside from '..';
 
+const isString = (value: unknown): value is string => typeof value === 'string';
 vi.mock('@soliduse/shared/dist/utils/is', () => ({
   get isClient() {
     return false;
+  },
+  get isString() {
+    return isString;
   },
 }));
 
