@@ -39,11 +39,10 @@ export default function useClickOutside(
 
     if (ignore && ignore.length > 0) {
       if (
-        ignore.some((target) => {
-          return (
+        ignore.some(
+          (target) =>
             target && (event.target === target || composedPath.includes(target))
-          );
-        })
+        )
       ) {
         return;
       }

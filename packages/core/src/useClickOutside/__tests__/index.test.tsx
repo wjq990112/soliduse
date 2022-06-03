@@ -70,16 +70,20 @@ describe('@soliduse/core/useClickOutside', () => {
 
     let unregister: Fn;
     let ref: HTMLElement;
+    let ignoreRef: HTMLElement;
     function App() {
       onMount(() => {
-        unregister = useClickOutside(ref, listener);
+        unregister = useClickOutside(ref, listener, { ignore: [ignoreRef] });
       });
 
       return (
-        <div data-testid="app">
-          <button ref={ref}>Button</button>
-          <span>Hello World</span>
-        </div>
+        <>
+          <div ref={ignoreRef} />
+          <div data-testid="app">
+            <button ref={ref}>Button</button>
+            <span>Hello World</span>
+          </div>
+        </>
       );
     }
 
@@ -91,6 +95,8 @@ describe('@soliduse/core/useClickOutside', () => {
     expect(listener).toHaveBeenCalledTimes(0);
     fireEvent.click(queryByText(/hello world/i));
     expect(listener).toHaveBeenCalledTimes(1);
+    fireEvent.pointerDown(window);
+    fireEvent.pointerUp(window);
 
     unregister();
 
