@@ -8,6 +8,7 @@ const getVisibility = () => {
   if (!isClient) {
     return 'visible';
   }
+
   return document.visibilityState;
 };
 

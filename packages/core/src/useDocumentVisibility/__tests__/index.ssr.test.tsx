@@ -4,8 +4,7 @@ import { createEffect } from 'solid-js';
 import { cleanup, mount } from '@soliduse/shared';
 import useDocumentVisibility from '..';
 
-export const isString = (value: unknown): value is string =>
-  typeof value === 'string';
+const isString = (value: unknown): value is string => typeof value === 'string';
 const mockDocumentVisibilityState = vi.spyOn(
   document,
   'visibilityState',
@@ -26,7 +25,7 @@ describe('@soliduse/core/useDocumentVisibility', () => {
     cleanup();
   });
 
-  test('should get document.visibilityState correctly when ssr', () => {
+  test('should get document.visibilityState correctly when server-side rendering', () => {
     mockDocumentVisibilityState.mockReturnValue('hidden');
 
     let visibilityState: ReturnType<typeof useDocumentVisibility>;

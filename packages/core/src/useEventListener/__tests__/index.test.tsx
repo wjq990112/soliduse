@@ -14,9 +14,7 @@ describe('@soliduse/core/useEventListener', () => {
     const listener = vi.fn();
 
     function App() {
-      onMount(() => {
-        useEventListener('click', listener);
-      });
+      useEventListener('click', listener);
       return null;
     }
 
@@ -29,9 +27,7 @@ describe('@soliduse/core/useEventListener', () => {
     const listener = vi.fn();
 
     function App() {
-      onMount(() => {
-        useEventListener(window, 'click', listener);
-      });
+      useEventListener(window, 'click', listener);
       return null;
     }
 
@@ -44,9 +40,7 @@ describe('@soliduse/core/useEventListener', () => {
     const listener = vi.fn();
 
     function App() {
-      onMount(() => {
-        useEventListener(document, 'click', listener);
-      });
+      useEventListener(document, 'click', listener);
       return null;
     }
 
@@ -63,7 +57,6 @@ describe('@soliduse/core/useEventListener', () => {
       onMount(() => {
         useEventListener(ref, 'click', listener);
       });
-
       return <div ref={ref} data-testid="app" />;
     }
 
@@ -78,9 +71,7 @@ describe('@soliduse/core/useEventListener', () => {
   test('should not register event listener when the target is not exist correctly', () => {
     let noop: Fn;
     function App() {
-      onMount(() => {
-        noop = useEventListener(null, 'click', () => {});
-      });
+      noop = useEventListener(null, 'click', () => {});
       return null;
     }
 
@@ -95,9 +86,7 @@ describe('@soliduse/core/useEventListener', () => {
 
     let unregister: Fn;
     function App() {
-      onMount(() => {
-        unregister = useEventListener('click', listener);
-      });
+      unregister = useEventListener('click', listener);
       return null;
     }
 
