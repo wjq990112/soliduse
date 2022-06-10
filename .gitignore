@@ -9,3 +9,6 @@ packages/**/dist
 
 # test coverage
 packages/**/coverage
+
+# docs
+docs/.vitepress/dist
