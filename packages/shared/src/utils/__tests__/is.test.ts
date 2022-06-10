@@ -1,6 +1,5 @@
 /// <reference types="vitest/globals" />
 
-import stripAnsi from 'strip-ansi';
 import {
   assert,
   isBoolean,
@@ -14,10 +13,7 @@ import {
 } from '../is';
 
 const log = vi.fn();
-vi.spyOn(console, 'warn').mockImplementation((message: string) => {
-  log(stripAnsi(message));
-});
-// const toString = vi.spyOn(Object.prototype, 'toString');
+vi.spyOn(console, 'warn').mockImplementation(log);
 
 describe('@soliduse/shared/is', () => {
   test('should be true correctly when the environment is client', () => {
@@ -58,15 +54,12 @@ describe('@soliduse/shared/is', () => {
   });
 
   test('should return correctly when the value is object', () => {
-    // toString.mockReturnValue('[object Object]');
     expect(isObject('object')).toBeFalsy();
     expect(isObject({})).toBeTruthy();
   });
 
   test.todo('should return correctly when the value is window', () => {
-    // toString.mockReturnValue('[object String]');
     expect(isWindow('window')).toBeFalsy();
-    // toString.mockReturnValue('[object Window]');
     expect(isWindow(window)).toBeTruthy();
   });
 });
