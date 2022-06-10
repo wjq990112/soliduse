@@ -13,7 +13,10 @@
     "test": "pnpm run -r --stream test",
     "test:watch": "pnpm run -r --parallel test:watch",
     "test:e2e": "cypress open",
-    "lint": "echo 'script lint is not implemented yet'"
+    "lint": "echo 'script lint is not implemented yet'",
+    "docs:dev": "vitepress dev docs --host",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
   },
   "keywords": [
     "solidjs",
@@ -31,6 +34,7 @@
     "strip-ansi": "^7.0.1",
     "typescript": "^4.7.2",
     "vite-plugin-solid": "^2.2.6",
+    "vitepress": "1.0.0-alpha.1",
     "vitest": "^0.12.10"
   }
 }
