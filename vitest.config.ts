@@ -5,6 +5,9 @@ import solid from 'vite-plugin-solid';
 export default defineConfig({
   plugins: [solid()],
   test: {
+    coverage: {
+      reporter: 'json',
+    },
     environment: 'jsdom',
     globals: true,
     setupFiles: [resolve(__dirname, 'utils/setupTests.ts')],
