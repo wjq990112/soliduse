@@ -13,7 +13,30 @@ export default defineConfig({
     nav: [
       {
         text: 'Guide',
-        items: [{ text: 'Get Started', link: '/guide/get-started' }],
+        items: [
+          {
+            text: 'Guide',
+            items: [{ text: 'Get Started', link: '/guide/get-started' }],
+          },
+        ],
+      },
+      {
+        text: 'Functions',
+        items: [
+          {
+            text: 'Core',
+            items: [{ text: 'Browser', link: '/core/browser' }],
+          },
+          {
+            text: 'Shared',
+            items: [
+              { text: 'Compute Utils', link: '/shared/compute' },
+              { text: 'Environment', link: '/shared/env' },
+              { text: 'Type Assert', link: '/shared/is' },
+              { text: 'Test Utils', link: '/shared/test' },
+            ],
+          },
+        ],
       },
     ],
     socialLinks: [

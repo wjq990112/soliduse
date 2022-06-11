@@ -41,5 +41,5 @@ Using the `useClickOutside` function will register a click event listener on `wi
 <iframe src="https://stackblitz.com/edit/useclickoutside?embed=1&file=src/App.tsx&hideExplorer=1&hideNavigation=1" width="100%" height="400rem" style="border: none; border-radius: 8px;" />
 
 :::tip
-Please click the button on the left bottom side to preview in `StackBlitz`.
+If the preview window shows that the browser is incompatible, please click the button on the left bottom side to preview in [StackBlitz](https://stackblitz.com/) using a Chromium-based browser.
 :::
