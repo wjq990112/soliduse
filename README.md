@@ -12,6 +12,12 @@ English | [简体中文](./README_zh-CN.md)
 
 A utils function library for SolidJS (Inspired by [ahooks](https://ahooks.js.org/) and [VueUse](https://vueuse.org/)).
 
+## Features
+
+- 💯 High quality: Each function has complete test cases with more than 80% coverage.
+- 🚀 SSR support: Each function supports both CSR and SSR with consistent behavior.
+- 🧩 More: More than these features...
+
 ## Usage
 
 TODO
