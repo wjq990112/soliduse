@@ -5,16 +5,16 @@
 You can use the package manager which you like, such as `npm`, `yarn` or `pnpm`:
 
 ```bash
-$ npm install @soliduse/core@next
+$ npm install @soliduse/core --save
 # or
-$ yarn add @soliduse/core@next
+$ yarn add @soliduse/core --save
 # or
-$ pnpm install @soliduse/core@next
+$ pnpm install @soliduse/core --save
 ```
 
 ## Usage
 
-After installation, you can use the functions you want in your Solid components.
+After installation, you can use the functions you want in your SolidJS components.
 
 For example, if you want to listen to the click event outside an element, you can use the `useClickOutside` function:
 
