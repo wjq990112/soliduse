@@ -1,6 +1,6 @@
 {
   "name": "@soliduse/shared",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.2",
   "license": "MIT",
   "author": "Jack Wang<https://github.com/wjq990112>",
   "description": "Collection of essential SolidJS Primitive for SolidJS",
@@ -17,7 +17,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "!dist/**/__tests__"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",

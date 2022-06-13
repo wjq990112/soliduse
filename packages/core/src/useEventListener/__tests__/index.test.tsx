@@ -1,4 +1,3 @@
-/// <reference types="vitest/globals" />
 import type { Fn } from '@soliduse/shared';
 
 import { onMount } from 'solid-js';
@@ -52,7 +51,7 @@ describe('@soliduse/core/useEventListener', () => {
   test('should register event listener to HTMLElement correctly', () => {
     const listener = vi.fn();
 
-    let ref: HTMLElement;
+    let ref!: HTMLDivElement;
     function App() {
       onMount(() => {
         useEventListener(ref, 'click', listener);
@@ -64,12 +63,12 @@ describe('@soliduse/core/useEventListener', () => {
     const el = queryByTestId('app');
     expect(el).toBeInTheDocument();
     expect(el).toEqual(ref);
-    fireEvent.click(el);
+    fireEvent.click(el as HTMLDivElement);
     expect(listener).toHaveBeenCalledTimes(1);
   });
 
   test('should not register event listener when the target is not exist correctly', () => {
-    let noop: Fn;
+    let noop!: Fn;
     function App() {
       noop = useEventListener(null, 'click', () => {});
       return null;
@@ -77,14 +76,14 @@ describe('@soliduse/core/useEventListener', () => {
 
     mount(App);
     expect(Function.prototype.toString.call(noop)).toMatchInlineSnapshot(
-      '"function () { }"'
+      '"() => { }"'
     );
   });
 
   test('should unregister event listener correctly', () => {
     const listener = vi.fn();
 
-    let unregister: Fn;
+    let unregister!: Fn;
     function App() {
       unregister = useEventListener('click', listener);
       return null;

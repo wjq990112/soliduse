@@ -2,11 +2,13 @@ import { resolve } from 'path';
 import { defineConfig } from 'vitest/config';
 import solid from 'vite-plugin-solid';
 
+const isCI = process.env.CI === 'true';
+
 export default defineConfig({
   plugins: [solid()],
   test: {
     coverage: {
-      reporter: 'json',
+      reporter: isCI ? 'json' : 'text',
     },
     environment: 'jsdom',
     globals: true,

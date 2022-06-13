@@ -1,5 +1,3 @@
-/// <reference types="vitest/globals" />
-
 import { AnyFn, cleanup } from '@soliduse/shared';
 
 import EventEmitter from 'events';
@@ -35,7 +33,7 @@ describe('@soliduse/core/useMediaQuery', () => {
     };
     mockMatchMedia.mockReturnValue(mockReturnedValue);
 
-    let matches: ReturnType<typeof useMediaQuery>;
+    let matches!: ReturnType<typeof useMediaQuery>;
     function App() {
       createEffect(() => {
         matches = useMediaQuery('(min-width: 500px)');
@@ -62,10 +60,9 @@ describe('@soliduse/core/useMediaQuery', () => {
     };
     mockMatchMedia.mockReturnValue(mockReturnedValue);
 
-    let matches: ReturnType<typeof useMediaQuery>;
     function App() {
       createEffect(() => {
-        matches = useMediaQuery('(min-width: 500px)');
+        useMediaQuery('(min-width: 500px)');
       });
       return null;
     }
@@ -79,9 +76,10 @@ describe('@soliduse/core/useMediaQuery', () => {
   });
 
   test('should return false correctly when the matchMedia method does not exist', () => {
+    // @ts-ignore
     delete window.matchMedia;
 
-    let matches: ReturnType<typeof useMediaQuery>;
+    let matches!: ReturnType<typeof useMediaQuery>;
     function App() {
       createEffect(() => {
         matches = useMediaQuery('(min-width: 500px)');

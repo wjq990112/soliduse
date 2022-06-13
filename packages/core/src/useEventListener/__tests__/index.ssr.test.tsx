@@ -1,5 +1,3 @@
-/// <reference types="vitest/globals" />
-
 import { cleanup, fireEvent, mount } from '@soliduse/shared';
 import useEventListener from '..';
 

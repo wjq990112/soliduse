@@ -1,5 +1,3 @@
-/// <reference types="vitest/globals" />
-
 import { createEffect } from 'solid-js';
 import { cleanup, mount } from '@soliduse/shared';
 import useMediaQuery from '..';
@@ -18,7 +16,7 @@ describe('@soliduse/core/useMediaQuery', () => {
   });
 
   test('should return false correctly when server-side rendering', () => {
-    let matches: ReturnType<typeof useMediaQuery>;
+    let matches!: ReturnType<typeof useMediaQuery>;
     function App() {
       createEffect(() => {
         matches = useMediaQuery('(min-width: 500px)');

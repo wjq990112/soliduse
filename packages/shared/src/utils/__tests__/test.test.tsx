@@ -1,5 +1,3 @@
-/// <reference types="vitest/globals" />
-
 import stripAnsi from 'strip-ansi';
 import { createEffect, createSignal } from 'solid-js';
 import { cleanup, fireEvent, mount } from '../test';
@@ -19,7 +17,7 @@ describe('@soliduse/shared/test', () => {
     const firstEffect = vi.fn();
     const secondEffect = vi.fn();
 
-    let ref: HTMLElement;
+    let ref!: HTMLDivElement;
     function App() {
       const [count, setCount] = createSignal(0);
       createEffect(firstEffect);
@@ -59,9 +57,9 @@ describe('@soliduse/shared/test', () => {
     expect(secondEffect).toHaveBeenCalledTimes(1);
     const el = queryByTestId('app');
     expect(ref).toEqual(el);
-    fireEvent.click(el);
+    fireEvent.click(el as HTMLDivElement);
     expect(secondEffect).toHaveBeenCalledTimes(2);
-    expect(el.textContent).toEqual('1');
+    expect((el as HTMLDivElement).textContent).toEqual('1');
     unmount();
     expect(queryByTestId('app')).not.toBeInTheDocument();
   });
