@@ -1,5 +1,3 @@
-/// <reference types="vitest/globals" />
-
 import { createEffect } from 'solid-js';
 import { cleanup, mount } from '@soliduse/shared';
 import useDocumentVisibility from '..';
@@ -18,7 +16,7 @@ describe('@soliduse/core/useDocumentVisibility', () => {
   test('should update document.visibilityState when visibility changed', () => {
     mockDocumentVisibilityState.mockReturnValue('hidden');
 
-    let visibilityState: ReturnType<typeof useDocumentVisibility>;
+    let visibilityState!: ReturnType<typeof useDocumentVisibility>;
     function App() {
       createEffect(() => {
         visibilityState = useDocumentVisibility();

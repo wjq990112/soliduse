@@ -1,5 +1,3 @@
-/// <reference types="vitest/globals" />
-
 import { onMount } from 'solid-js';
 import { cleanup, fireEvent, mount } from '@soliduse/shared';
 import useClickOutside from '..';
@@ -22,7 +20,7 @@ describe('@soliduse/core/useClickOutside', () => {
   test('should not be triggered correctly when server-side rendering', () => {
     const listener = vi.fn();
 
-    let ref: HTMLElement;
+    let ref: HTMLButtonElement;
     function App() {
       onMount(() => {
         useClickOutside(ref, listener);
@@ -40,9 +38,9 @@ describe('@soliduse/core/useClickOutside', () => {
     const el = queryByTestId('app');
     expect(el).toBeInTheDocument();
     expect(listener).toHaveBeenCalledTimes(0);
-    fireEvent.click(queryByText(/button/i));
+    fireEvent.click(queryByText(/button/i) as HTMLButtonElement);
     expect(listener).toHaveBeenCalledTimes(0);
-    fireEvent.click(queryByText(/hello world/i));
+    fireEvent.click(queryByText(/hello world/i) as HTMLSpanElement);
     expect(listener).toHaveBeenCalledTimes(0);
   });
 });

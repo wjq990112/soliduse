@@ -1,4 +1,3 @@
-/// <reference types="vitest/globals" />
 import type { Fn } from '@soliduse/shared';
 
 import { onMount } from 'solid-js';
@@ -13,7 +12,7 @@ describe('@soliduse/core/useClickOutside', () => {
   test('should be triggered correctly when clicking outside of target', () => {
     const listener = vi.fn();
 
-    let ref: HTMLElement;
+    let ref: HTMLButtonElement;
     function App() {
       onMount(() => {
         useClickOutside(ref, listener);
@@ -31,17 +30,17 @@ describe('@soliduse/core/useClickOutside', () => {
     const el = queryByTestId('app');
     expect(el).toBeInTheDocument();
     expect(listener).toHaveBeenCalledTimes(0);
-    fireEvent.click(queryByText(/button/i));
+    fireEvent.click(queryByText(/button/i) as HTMLButtonElement);
     expect(listener).toHaveBeenCalledTimes(0);
-    fireEvent.click(queryByText(/hello world/i));
+    fireEvent.click(queryByText(/hello world/i) as HTMLSpanElement);
     expect(listener).toHaveBeenCalledTimes(1);
   });
 
   test('should not be triggered correctly when clicking outside of target which is ignored', () => {
     const listener = vi.fn();
 
-    let ref: HTMLElement;
-    let ignoreRef: HTMLElement;
+    let ref: HTMLButtonElement;
+    let ignoreRef: HTMLSpanElement;
     function App() {
       onMount(() => {
         useClickOutside(ref, listener, { ignore: [ignoreRef] });
@@ -59,21 +58,23 @@ describe('@soliduse/core/useClickOutside', () => {
     const el = queryByTestId('app');
     expect(el).toBeInTheDocument();
     expect(listener).toHaveBeenCalledTimes(0);
-    fireEvent.click(queryByText(/button/i));
+    fireEvent.click(queryByText(/button/i) as HTMLButtonElement);
     expect(listener).toHaveBeenCalledTimes(0);
-    fireEvent.click(queryByText(/hello world/i));
+    fireEvent.click(queryByText(/hello world/i) as HTMLSpanElement);
     expect(listener).toHaveBeenCalledTimes(0);
   });
 
   test('should not be triggered correctly when clicking outside of target after unregistering', () => {
     const listener = vi.fn();
 
-    let unregister: Fn;
-    let ref: HTMLElement;
-    let ignoreRef: HTMLElement;
+    let unregister!: Fn;
+    let ref: HTMLButtonElement;
+    let ignoreRef: HTMLDivElement;
     function App() {
       onMount(() => {
-        unregister = useClickOutside(ref, listener, { ignore: [ignoreRef] });
+        unregister = useClickOutside(ref, listener, {
+          ignore: [ignoreRef],
+        }) as Fn;
       });
 
       return (
@@ -91,9 +92,9 @@ describe('@soliduse/core/useClickOutside', () => {
     const el = queryByTestId('app');
     expect(el).toBeInTheDocument();
     expect(listener).toHaveBeenCalledTimes(0);
-    fireEvent.click(queryByText(/button/i));
+    fireEvent.click(queryByText(/button/i) as HTMLButtonElement);
     expect(listener).toHaveBeenCalledTimes(0);
-    fireEvent.click(queryByText(/hello world/i));
+    fireEvent.click(queryByText(/hello world/i) as HTMLSpanElement);
     expect(listener).toHaveBeenCalledTimes(1);
     fireEvent.pointerDown(window);
     fireEvent.pointerUp(window);
@@ -101,15 +102,15 @@ describe('@soliduse/core/useClickOutside', () => {
     unregister();
 
     expect(listener).toHaveBeenCalledTimes(1);
-    fireEvent.click(queryByText(/button/i));
+    fireEvent.click(queryByText(/button/i) as HTMLButtonElement);
     expect(listener).toHaveBeenCalledTimes(1);
-    fireEvent.click(queryByText(/hello world/i));
+    fireEvent.click(queryByText(/hello world/i) as HTMLSpanElement);
     expect(listener).toHaveBeenCalledTimes(1);
-    fireEvent.pointerDown(queryByText(/button/i));
-    fireEvent.pointerDown(queryByText(/hello world/i));
+    fireEvent.pointerDown(queryByText(/button/i) as HTMLButtonElement);
+    fireEvent.pointerDown(queryByText(/hello world/i) as HTMLSpanElement);
     expect(listener).toHaveBeenCalledTimes(1);
-    fireEvent.pointerUp(queryByText(/button/i));
-    fireEvent.pointerUp(queryByText(/hello world/i));
+    fireEvent.pointerUp(queryByText(/button/i) as HTMLButtonElement);
+    fireEvent.pointerUp(queryByText(/hello world/i) as HTMLSpanElement);
     expect(listener).toHaveBeenCalledTimes(1);
   });
 });
