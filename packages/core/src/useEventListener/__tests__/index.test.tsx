@@ -76,7 +76,7 @@ describe('@soliduse/core/useEventListener', () => {
 
     mount(App);
     expect(Function.prototype.toString.call(noop)).toMatchInlineSnapshot(
-      '"function () { }"'
+      '"() => { }"'
     );
   });
 
