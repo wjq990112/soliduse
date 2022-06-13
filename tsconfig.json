@@ -17,5 +17,5 @@
     "noUnusedLocals": true,
     "types": ["vitest/globals", "@types/testing-library__jest-dom"]
   },
-  "exclude": ["**/node_modules", "**/dist", "**/docs"]
+  "exclude": ["**/node_modules", "**/dist"]
 }
