@@ -17,7 +17,7 @@ describe('@soliduse/core/useClickOutside', () => {
     cleanup();
   });
 
-  test('should not be triggered correctly when server-side rendering', () => {
+  test('should not be fired correctly when server-side rendering', () => {
     const listener = vi.fn();
 
     let ref: HTMLButtonElement;
