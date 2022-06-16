@@ -19,6 +19,7 @@ After installation, you can use the functions you want in your SolidJS component
 For example, if you want to listen to the click event outside an element, you can use the `useClickOutside` function:
 
 ```tsx
+// App.tsx
 let ref: HTMLElement;
 function App() {
   onMount(() => {
@@ -36,7 +37,7 @@ function App() {
 }
 ```
 
-Using the `useClickOutside` function will register a click event listener on `window`, which will judge the target of the click event internally. If the target of the click event is `ref`, the callback will not be triggered, otherwise, it will be triggered.
+Using the `useClickOutside` function will register a click event listener on `window`, which will check the target of the click event internally. If the target of the click event is `ref`, the callback will not be fired, otherwise, it will be fired.
 
 <iframe src="https://stackblitz.com/edit/useclickoutside?embed=1&file=src/App.tsx&hideExplorer=1&hideNavigation=1" width="100%" height="400rem" style="border: none; border-radius: 8px;" />
 
