@@ -9,7 +9,7 @@ const mockDocumentVisibilityState = vi.spyOn(
   'get'
 );
 
-vi.mock('@soliduse/shared/dist/utils/is', () => ({
+vi.mock('@soliduse/shared/utils/is', () => ({
   get isClient() {
     return false;
   },

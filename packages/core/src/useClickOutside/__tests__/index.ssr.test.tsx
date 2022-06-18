@@ -3,7 +3,7 @@ import { cleanup, fireEvent, mount } from '@soliduse/shared';
 import useClickOutside from '..';
 
 const isString = (value: unknown): value is string => typeof value === 'string';
-vi.mock('@soliduse/shared/dist/utils/is', () => ({
+vi.mock('@soliduse/shared/utils/is', () => ({
   get isClient() {
     return false;
   },
