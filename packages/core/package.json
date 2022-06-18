@@ -27,7 +27,7 @@
     "./*": "./dist/*"
   },
   "dependencies": {
-    "@soliduse/shared": "workspace:^",
+    "@soliduse/shared": "workspace:^0.0.0-alpha.3",
     "solid-js": "^1.4.4"
   },
   "peerDependencies": {

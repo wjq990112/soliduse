@@ -32,7 +32,7 @@ importers:
 
   packages/core:
     specifiers:
-      '@soliduse/shared': workspace:^0.0.0-alpha.2
+      '@soliduse/shared': workspace:^0.0.0-alpha.3
       solid-js: ^1.4.4
     dependencies:
       '@soliduse/shared': link:../shared
