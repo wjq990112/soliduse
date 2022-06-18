@@ -1,6 +1,6 @@
 {
   "name": "@soliduse/core",
-  "version": "0.0.0-alpha.2",
+  "version": "0.0.0-alpha.3",
   "license": "MIT",
   "author": "Jack Wang<https://github.com/wjq990112>",
   "description": "Collection of essential SolidJS Primitive for SolidJS",
@@ -23,8 +23,18 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "default": "./dist/*",
+      "types": "./dist/*.d.ts"
+    }
+  },
   "dependencies": {
-    "@soliduse/shared": "workspace:^0.0.0-alpha.2",
+    "@soliduse/shared": "workspace:^0.0.0-alpha.3",
     "solid-js": "^1.4.4"
   },
   "peerDependencies": {

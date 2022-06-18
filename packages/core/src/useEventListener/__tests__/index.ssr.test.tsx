@@ -2,7 +2,7 @@ import { cleanup, fireEvent, mount } from '@soliduse/shared';
 import useEventListener from '..';
 
 const isString = (value: unknown): value is string => typeof value === 'string';
-vi.mock('@soliduse/shared/dist/utils/is', () => {
+vi.mock('@soliduse/shared/utils/is', () => {
   return {
     get isClient() {
       return false;

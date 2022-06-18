@@ -2,7 +2,7 @@ import { createEffect } from 'solid-js';
 import { cleanup, mount } from '@soliduse/shared';
 import useMediaQuery from '..';
 
-vi.mock('@soliduse/shared/dist/utils/is', () => {
+vi.mock('@soliduse/shared/utils/is', () => {
   return {
     get isClient() {
       return false;
