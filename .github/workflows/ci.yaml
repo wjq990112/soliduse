@@ -1,6 +1,12 @@
 name: CI
 
-on: push
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - master
 
 jobs:
   test:
@@ -17,11 +23,12 @@ jobs:
         run: pnpm install
       - name: Testing & Coverage
         run: pnpm test
-      - name: Uploading Coverage Report
+      - name: Uploading Coverage Report of `@soliduse/core`
         uses: codecov/codecov-action@v2
         with:
           flags: core
           directory: packages/core
+      - name: Uploading Coverage Report of `@soliduse/shared`
         uses: codecov/codecov-action@v2
         with:
           flags: shared
