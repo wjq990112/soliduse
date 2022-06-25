@@ -21,7 +21,7 @@ jobs:
           version: 7
       - name: Installing Deps & Building
         run: pnpm install
-      - name: Testing & Coverage
+      - name: Testing & Generating Coverage Report
         run: pnpm test
       - name: Uploading Coverage Report of `@soliduse/core`
         uses: codecov/codecov-action@v2
