@@ -13,14 +13,16 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 7
-      - run: pnpm install
-      - run: pnpm build
-      - run: pnpm test
-      - uses: codecov/codecov-action@v2
+      - name: Installing Deps & Building
+        run: pnpm install
+      - name: Testing & Coverage
+        run: pnpm test
+      - name: Uploading Coverage Report
+        uses: codecov/codecov-action@v2
         with:
           flags: core
           directory: packages/core
-      - uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v2
         with:
           flags: shared
           directory: packages/shared

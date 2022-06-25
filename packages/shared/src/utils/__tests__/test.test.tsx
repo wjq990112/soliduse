@@ -12,7 +12,6 @@ describe('@soliduse/shared/test', () => {
     cleanup();
   });
 
-  // TODO: test case for hydration
   test('should call createEffect without hydration correctly', () => {
     const firstEffect = vi.fn();
     const secondEffect = vi.fn();
@@ -63,4 +62,6 @@ describe('@soliduse/shared/test', () => {
     unmount();
     expect(queryByTestId('app')).not.toBeInTheDocument();
   });
+
+  test.todo('should call createEffect without hydration correctly', () => {});
 });
