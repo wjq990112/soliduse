@@ -36,15 +36,15 @@ export default function useMediaQuery(
 
     if ('addEventListener' in mediaQuery) {
       mediaQuery.addEventListener('change', update);
-    } else {
-      mediaQuery.addListener(update);
+    } else if ('addListener' in mediaQuery) {
+      (mediaQuery as MediaQueryList).addListener(update);
     }
 
     onCleanup(() => {
       if ('removeEventListener' in mediaQuery) {
         mediaQuery.removeEventListener('change', update);
-      } else {
-        mediaQuery.removeListener(update);
+      } else if ('removeListener' in mediaQuery) {
+        (mediaQuery as MediaQueryList).removeListener(update);
       }
     });
   });
