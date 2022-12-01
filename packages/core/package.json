@@ -10,7 +10,8 @@
     "hooks"
   ],
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
+    "clean": "rm -rf ./dist",
+    "build": "tsc",
     "watch": "tsc -w",
     "test": "vitest run --coverage",
     "test:watch": "vitest watch"
