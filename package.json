@@ -8,9 +8,9 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build": "turbo run build",
-    "watch": "pnpm run -r --parallel watch",
+    "watch": "turbo run watch",
     "test": "turbo run test",
-    "test:watch": "pnpm run -r --parallel test:watch",
+    "test:watch": "turbo run test:watch",
     "test:e2e": "cypress open",
     "lint": "echo 'script lint is not implemented yet'",
     "docs:dev": "vitepress dev docs --host",
