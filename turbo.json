@@ -13,7 +13,7 @@
       "outputs": ["dist/**"]
     },
     "test": {
-      "dependsOn": ["clean", "^build"],
+      "dependsOn": ["build"],
       "inputs": ["src/**"]
     },
     "test:watch": {
